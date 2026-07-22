@@ -5,10 +5,11 @@ import {AppRouterCacheProvider} from '@mui/material-nextjs/v15-appRouter';
 import {ThemeProvider} from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import theme from '../../theme';
+import AuthProvider from "@/src/components/AuthProvider";
 
 export const metadata: Metadata = {
-    title: "My NextJS app",
-    description: "Description of my next js application",
+    title: "Trail Catcher",
+    description: "Explore. Track. Complete.",
 };
 
 const geistSans = Geist({
@@ -24,7 +25,9 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
         <AppRouterCacheProvider>
             <ThemeProvider theme={theme}>
                 <CssBaseline/>
-                {children}
+                <AuthProvider>
+                    {children}
+                </AuthProvider>
             </ThemeProvider>
         </AppRouterCacheProvider>
         </body>
